@@ -343,7 +343,7 @@ timeSeriesCalculator = (snapshotArray, config) ->
   listOfAtCTs = (r.pastEnd for r in subRanges)
   
   # 2. Finding the state of each object **AT** each point in the listOfAtCTs array.
-  atArray = snapshotArray_To_AtArray(snapshotArray, listOfAtCTs, config.snapshotValidFromField, config.snapshotUniqueID, config.timezone)
+  atArray = snapshotArray_To_AtArray(snapshotArray, listOfAtCTs, config.snapshotValidFromField, config.snapshotUniqueID, config.timezone, config.snapshotValidToField)
     
   # 3. Deriving fields from other fields
   deriveFieldsAt(atArray, config.derivedFields)
@@ -379,7 +379,7 @@ timeSeriesGroupByCalculator = (snapshotArray, config) ->
   listOfAtCTs = (r.pastEnd for r in subRanges)
   
   # 2. Finding the state of each object **AT** each point in the listOfAtCTs array.
-  atArray = snapshotArray_To_AtArray(snapshotArray, listOfAtCTs, config.snapshotValidFromField, config.snapshotUniqueID, config.timezone)
+  atArray = snapshotArray_To_AtArray(snapshotArray, listOfAtCTs, config.snapshotValidFromField, config.snapshotUniqueID, config.timezone, config.snapshotValidToField)
   
   # 3. Creating chartable grouped aggregations
   aggregationSpec =
